@@ -1,59 +1,20 @@
-
 import React, { useEffect, useState } from "react";
+import { pedirDatos } from "../../helpers/pedirDatos";
+import { ItemList } from "./ItemList";
 
-export const ItemListContainer =( {greeting}) => {
+export const ItemListContainer = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    const [data, setData] = useState([])
-    
+  useEffect(() => {
+    setLoading(true);
+    pedirDatos()
+      .then((res) => setData(res))
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
-    const stock = [
-        {   
-            id: 1,
-            nombre: "Iphone 12",
-            precio: 1000
-        
-        },
-        {   
-            id: 2,
-            nombre: "Samsung Galaxy",
-            precio: 500
-        
-        },
-        {   
-            id: 3,
-            nombre: "Motorola V3",
-            precio: 100
-        
-        },
-    ]
- 
-    const pedirDatos = () => {
-      
-        return new Promise((resolve,reject) => {
-           
-            setTimeout(()=>{
-                resolve (stock)
-            }, 2000)
-
-        })
-    }
-
-    useEffect( ()=> {
-
-        pedirDatos ()
-            .then(res => setData(res))
-
-    }, [])
-
-    
-    return(
-
-        <div>
-            <h2>{greeting}</h2>
-            <hr/>
-            <p>{JSON.stringify(data)}</p>
-        </div>
-    )
-
-    
-}
+  return <>{loading ? <h2>Cargando...</h2> : <ItemList productos={data} />};</>;
+};
