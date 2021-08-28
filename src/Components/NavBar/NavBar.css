@@ -3,6 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%;
-  background-color: cornflowerblue;
+  background-color: black;
   color: white;
+}
+
+.link {
+  color: #fff;
+}
+.link:hover {
+  color: #00f;
 }

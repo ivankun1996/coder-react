@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Item = ({ item }) => {
   return (
@@ -7,6 +8,9 @@ export const Item = ({ item }) => {
       <h3>{item.nombre}</h3>
       <p>{item.desc}</p>
       <p>{item.precio}</p>
+      <Link to={`/detail/${item.id}`} className="btn btn-outline-primary">
+        Ver más
+      </Link>
     </div>
   );
 };
