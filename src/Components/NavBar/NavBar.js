@@ -1,6 +1,8 @@
 import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { CartWidget } from "../CartWidget/CartWidget";
+import { CartScreen } from "../CartScreen/CartScreen";
 
 export const NavBar = () => {
   return (
@@ -22,10 +24,10 @@ export const NavBar = () => {
         <Link className="mx-1 link" to={"/category/samsung"}>
           Samsung
         </Link>
-        <Link className="mx-1 link" to={"/cart"}>
-          Carrito
-        </Link>
       </nav>
+      <CartWidget>
+        <CartScreen></CartScreen>
+      </CartWidget>
     </header>
   );
 };
