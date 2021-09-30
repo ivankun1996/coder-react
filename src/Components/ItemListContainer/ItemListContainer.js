@@ -19,6 +19,8 @@ export const ItemListContainer = () => {
 
       if (catId) {
         setData(data.filter((el) => el.category === catId));
+      } else {
+        setData(data);
       }
     });
   }, [catId]);

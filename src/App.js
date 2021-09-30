@@ -6,6 +6,7 @@ import { ItemDetailContainer } from "./Components/ItemDetailContainer/ItemDetail
 import { UnContext } from "./context/UnContext";
 import { useState } from "react";
 import { CartScreen } from "./Components/CartScreen/CartScreen";
+import { Checkout } from "./Components/Checkout/Checkout";
 
 function App() {
   const [carrito, setCarrito] = useState([]);
@@ -55,6 +56,9 @@ function App() {
               </Route>
               <Route exact path="/cart">
                 <CartScreen />
+              </Route>
+              <Route exact path="/checkout">
+                <Checkout />
               </Route>
             </Switch>
           </BrowserRouter>

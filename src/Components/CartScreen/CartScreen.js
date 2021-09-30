@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UnContext } from "../../context/UnContext";
 
 export const CartScreen = () => {
@@ -19,6 +20,9 @@ export const CartScreen = () => {
       <button className="btn btn-danger" onClick={vaciarCarrito}>
         Vaciar carrito
       </button>
+      <Link to="/checkout">
+        <button className="btn btn-success">Finalizar compra</button>
+      </Link>
     </div>
   );
 };
